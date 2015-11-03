@@ -1,0 +1,33 @@
+<template name="chat">
+    <div class="chat">
+        <div class="messages">
+            {{# each messages }}
+                {{>chatMessage}}
+            {{/ each}}
+        </div>
+        {{>chatForm}}
+    </div>
+</template>
+
+<template name="chatForm">
+    <form action="" class="new-message-form">
+        <div class="form-group">
+            <input type="text" class="new-message form-control"/>
+            <button class="send btn btn-primary">
+                <span class="fa fa-chevron-right"></span>
+            </button>
+        </div>
+    </form>
+</template>
+
+<template name="chatMessage">
+    <div class="message">
+        <div class="content">
+            {{# with userData}}
+                {{> user }}
+            {{/with}}
+            <div class="body">{{body}}</div>
+            <div class="time">{{time}}</div>
+        </div>
+    </div>
+</template>

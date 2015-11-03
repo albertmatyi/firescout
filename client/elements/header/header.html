@@ -1,0 +1,19 @@
+<template name="header">
+    {{>menu }}
+    <div class="app-header">
+        <img src="/images/logo32.png" alt="" class="logo"/>
+        {{# if title}}
+            <div class="title">
+                {{title}}
+            </div>
+        {{else}}
+            {{> headerBrand}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="headerBrand">
+    <div class="brand title">
+        <span class="fire">Fire</span>Scout
+    </div>
+</template>

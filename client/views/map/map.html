@@ -1,0 +1,49 @@
+<template name="map">
+    <div class="map">
+        {{>header}}
+        {{>mapPins}}
+    </div>
+    <div class="menu">
+        <div class="header">Filters</div>
+        {{>filterCategories}}
+    </div>
+</template>
+
+<template name="filterCategories">
+    <ul class="categories">
+        {{# each categories }}
+            <div class="category">
+                {{> name}}
+            </div>
+        {{/ each}}
+    </ul>
+</template>
+
+<template name="mapPins">
+    <div class="pins">
+        {{# each eventInfos }}
+            {{>mapPin}}
+        {{/ each}}
+    </div>
+</template>
+
+<template name="mapPin">
+    <div class="pin" style="left: {{location.x}}%; top: {{location.y}}%;">
+    </div>
+    {{#if active}}
+        {{> mapPopup}}
+    {{/if}}
+</template>
+
+<template name="mapPopup">
+    <div class="popup-wrapper" style="left: {{location.x}}%; top: {{location.y}}%;">
+        <div class="popup">
+            <div class="content">
+                {{>eventInfo}}
+                <div class="activate-arrow">
+                    <span class="fa fa-angle-right"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

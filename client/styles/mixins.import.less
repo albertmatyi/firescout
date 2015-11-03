@@ -1,0 +1,23 @@
+.position(@top: 0, @right: @top, @bottom: @top, @left: @right, @position: absolute) {
+  position: @position;
+  top: @top;
+  left: @left;
+  right: @right;
+  bottom: @bottom;
+}
+
+.animation-duration(@dur) {
+  -webkit-animation-duration: @dur;
+  -moz-animation-duration: @dur;
+  -o-animation-duration: @dur;
+  animation-duration: @dur;
+}
+
+.enhance-touch(@size) {
+  &:after {
+    content: '';
+    display: block;
+    @touch-enhance-size: -@size;
+    .position(@touch-enhance-size, @touch-enhance-size, @touch-enhance-size, @touch-enhance-size);
+  }
+}

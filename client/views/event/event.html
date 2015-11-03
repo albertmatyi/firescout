@@ -1,0 +1,29 @@
+<template name="event">
+    <div class="event-page">
+        {{>header title=event.venueName}}
+        {{>eventHero}}
+        {{>chat eventId=event._id}}
+    </div>
+</template>
+
+<template name="eventHero">
+    {{#with event}}
+        <div class="event-hero" style="background-image: url({{image}});">
+            {{> eventInfo}}
+        </div>
+    {{/with}}
+</template>
+
+<template name="eventInfo">
+    <div class="event-name">{{eventName}}</div>
+    <div class="venue-name">@{{venueName}}</div>
+    <div class="fire-scouts">
+        <img src="/images/fire12.png" alt=""/>
+        {{fireScouts}}
+    </div>
+    <div class="event-time">
+        <span class="fa fa-clock-o"></span>
+        <span class="hour">{{startHour}}</span>
+        <span class="minute">{{startMinute}}</span>
+    </div>
+</template>

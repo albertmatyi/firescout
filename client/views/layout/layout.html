@@ -1,0 +1,29 @@
+<head>
+    <title>FireScout</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" href="/images/logo128.png" type="image/x-icon"/>
+
+</head>
+
+<template name="layout">
+    {{! >navbar}}
+    <div class="main-container">
+        {{> yield}}
+    </div>
+</template>
+
+<template name="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{pathFor 'home'}}">
+                    <img alt="hackmarks" src="/images/logo.png">
+                    hackmarks
+                </a>
+            </div>
+        </div>
+    </nav>
+</template>

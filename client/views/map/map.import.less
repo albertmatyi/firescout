@@ -1,0 +1,87 @@
+.map {
+  background-image: url('/images/map.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  .pins {
+    height: 100%;
+    width: 100%;
+    @pin-size: 32px * .8;
+    .pin {
+      position: absolute;
+      height: @pin-size;
+      width: @pin-size;
+      background-image: url(/images/pin.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      .translate(-50%, -50%);
+      z-index: 2;
+      .enhance-touch(12px);
+    }
+    .popup-wrapper {
+      z-index: 3;
+      .position();
+      width: 70vw;
+      min-width: 224px;
+      bottom: 100%;
+      position: absolute;
+      margin-top: -@pin-size;
+      .popup {
+        width: 100%;
+        height: auto;
+        .translate(-50%, -100%);
+        background-color: white;
+        @shadow: 1px 2px 3px rgba(0, 0, 0, .3);
+        border-radius: 2px;
+        .box-shadow(@shadow);
+        &:after {
+          @arrow-size: 16px;
+
+          content: '';
+          display: block;
+          //border: solid @arrow-size transparent;
+          //border-top-color: #fff;
+          height: @arrow-size;
+          width: @arrow-size;
+          background-color: white;
+          .rotate(45deg);
+          .position(auto, auto, -1/1.49/2 * @arrow-size, 50%);
+          margin-left: -@arrow-size/2;
+          //.box-shadow(@shadow);
+          z-index: 1;
+        }
+        .content {
+          z-index: 2;
+          padding: @padding-base-vertical @padding-base-horizontal;
+          position: relative;
+          @activate-arrow-size: 32px;
+          .activate-arrow {
+            .position(0, 0, 0, auto);
+            background-color: white;
+            color: @brand-primary;
+            padding: @padding-base-horizontal/2;
+            font-size: 1.7em;
+            border-left: solid 1px @gray-lighter;
+          }
+          .event-name {
+            font-size: 1.1em;
+            font-weight: bold;
+          }
+          .venue-name {
+            font-size: 0.7em;
+          }
+          .event-time {
+            .position(@padding-base-vertical, @activate-arrow-size, auto, auto);
+            font-weight: bold;
+          }
+          .fire-scouts {
+            .position(auto, @activate-arrow-size, @padding-base-vertical, auto);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.menu {
+  &.pane-wrapper {
+    .position(0, 0, 0, 0, fixed);
+    width: 100%;
+    z-index: 6;
+    .translate(-100%, 0%);
+    &:after {
+      content: '';
+      display: block;
+      background-color: rgba(0, 0, 0, .3);
+      opacity: 0;
+      .position();
+      .transition(opacity .25s ease-out);
+      z-index: 1;
+    }
+    &.active {
+      .translate(0%, 0%);
+      &:after {
+        opacity: 1;
+      }
+      .pane {
+        .translate(0%, 0%);
+      }
+    }
+    .pane {
+      padding: @padding-base-horizontal @padding-base-vertical;
+      background-color: @gray-lighter;
+      .position();
+      width: 80%;
+      @media (min-width: @screen-sm-min) {
+        width: 40%;
+      }
+      @media (min-width: @screen-md-min) {
+        width: 30%;
+      }
+      .transition(transform .25s ease-out);
+      .translate(-100%, 0%);
+      z-index: 2;
+      .pane-top {
+        .clearfix();
+        .user-image {
+          float: left;
+          height: 80px;
+          width: 80px;
+          @media (max-width: @screen-sm-min) {
+            height: 40px;
+            width: 40px;
+          }
+        }
+        .xlose.btn {
+          color: white;
+          .position(@padding-base-vertical, @padding-base-horizontal, auto, auto);
+        }
+        .user-name {
+          display: inline-block;
+          font-size: 1.5em;
+          color: white;
+          position: relative;
+          margin-left: @padding-base-horizontal;
+          font-weight: 100;
+          @media (min-width: @screen-sm-min) {
+            top: 20px;
+          }
+        }
+      }
+      .elements {
+        margin-top: 2em;
+
+        .element {
+          color: @brand-success;
+          font-size: 1.2em;
+          padding: .5em .5em;
+          border-top: solid 1px fade(@gray, 50%);
+          display: block;
+          text-decoration: none;
+          &:first-child {
+            border-top: none;
+          }
+          .element-icon {
+            display: inline-block;
+            padding-right: 1em;
+          }
+          .element-title {
+            display: inline-block;
+          }
+        }
+      }
+      .pane-logo {
+        .position(auto, 0, @padding-base-vertical*4, 0);
+        @media (max-width: @screen-sm-max) {
+          font-size: .7em;
+          h1 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.app-header {
+  @logo-size: 26px;
+  .position (0, 0, auto, 0);
+  z-index: 10;
+  background-color: white;
+  @shadow: 0 1px 2px rgba(0, 0, 0, .3);
+  .box-shadow(@shadow);
+  font-size: 1.2em;
+  text-align: center;
+  position: relative;
+  height: @logo-size + @padding-base-vertical*2;
+  .title {
+    text-transform: uppercase;
+    padding-top: @padding-base-vertical;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  .logo {
+    .position (@padding-base-vertical, auto, auto, @padding-base-horizontal);
+    height: @logo-size;
+    .enhance-touch(10px);
+  }
+}
+
+.brand {
+  .fire {
+    color: @brand-primary;
+  }
+}
